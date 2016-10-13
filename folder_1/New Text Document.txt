@@ -1,0 +1,5 @@
+abc bcd xyz pqr
+bcd abc pqr
+xyz poo zoo
+zoo roo
+poo abc querty

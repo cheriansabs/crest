@@ -12,12 +12,14 @@ import com.crest.etl.core.Loader;
 import com.crest.etl.core.Transformer;
 import com.crest.etl.util.FileUtils;
 
-public class FileFacade implements Facade {
+public class FileFacade implements Facade<File> {
 
 	List<Transformer> lstTransformers;
 	List<String> lstTransformedStrings;
 	Loader loader;
-	Extractor extractor;
+	Extractor<File> extractor;
+
+	
 
 	@Override
 	public void extractTransformLoad(String... options) throws Exception {
@@ -55,6 +57,11 @@ public class FileFacade implements Facade {
 	public void setLoader(Loader loader) {
 		this.loader = loader;
 
+	}
+	
+	@Override
+	public void setExtractor(Extractor extractor) {
+		this.extractor = extractor;
 	}
 
 }
