@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import com.crest.etl.core.Extractor;
+import com.crest.etl.core.Facade;
 import com.crest.etl.core.Transformer;
 import com.crest.etl.factory.ExtractorFactory;
 import com.crest.etl.factory.LoaderFactory;
@@ -17,7 +18,7 @@ public class TestETL {
 	@Test
 	public void testCapitalization() {
 		
-		Extractor extractor = ExtractorFactory.getExtractor("FILE");
+		Facade extractor = ExtractorFactory.getExtractor("FILE");
 		List<Transformer> lstTransformers = new ArrayList<>();
 		lstTransformers.add(TransformerFactory.getTransformer("CAPITALIZE"));
 		extractor.setTransformers(lstTransformers);
@@ -25,10 +26,11 @@ public class TestETL {
 		
 		try {
 			
-			extractor.extract("F:\\tmp\\folder_1","F:\\tmp\\folder_2");
+			extractor.extractTransformLoad("F:\\tmp\\folder_1","F:\\tmp\\folder_2");
+			Assert.assertTrue(TestUtil.checkIfFilesAreCapitalized("F:\\tmp\\folder_2"));
 			
 			
-		} catch (IOException e) {
+		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
@@ -37,7 +39,7 @@ public class TestETL {
 	}
 	
 	
-	@Test
+	/*@Test
 	public void testWordCount() {
 		
 		Extractor extractor = ExtractorFactory.getExtractor("FILE");
@@ -57,6 +59,6 @@ public class TestETL {
 		}
 		
 		
-	}
+	}*/
 
 }

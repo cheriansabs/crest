@@ -1,13 +1,13 @@
 package com.crest.etl.factory;
 
-import com.crest.etl.core.Extractor;
-import com.crest.etl.core.impl.FileExtractor;
+import com.crest.etl.core.Facade;
+import com.crest.etl.core.impl.FileFacade;
 
 public class ExtractorFactory {
 
-	public static Extractor getExtractor(String name){
+	public static Facade getExtractor(String name){
 		if(name.endsWith("FILE"))
-			return new FileExtractor();
+			return new FileFacade();
 		return null;		
 		
 	}

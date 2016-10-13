@@ -1,16 +1,9 @@
 package com.crest.etl.core;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
-public interface Extractor {
+public interface Extractor<P> {
 
-	public void extract(String... options) throws FileNotFoundException, IOException;
+	List<String> extract(P param) throws Exception;
 
-	public void setTransformers(List<Transformer> lstTransformers);
-
-	public void setLoader(Loader loader);
-	
-	
 }
