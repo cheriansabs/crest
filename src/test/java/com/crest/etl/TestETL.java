@@ -25,7 +25,30 @@ public class TestETL {
 		
 		try {
 			
-			extractor.extract("F:\tmp\folder_1","F:\tmp\folder_2");
+			extractor.extract("F:\\tmp\\folder_1","F:\\tmp\\folder_2");
+			
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+	@Test
+	public void testWordCount() {
+		
+		Extractor extractor = ExtractorFactory.getExtractor("FILE");
+		List<Transformer> lstTransformers = new ArrayList<>();
+		lstTransformers.add(TransformerFactory.getTransformer("WORDCOUNT"));
+		extractor.setTransformers(lstTransformers);
+		extractor.setLoader(LoaderFactory.getLoader("FILE"));
+		
+		try {
+			
+			extractor.extract("F:\\tmp\\folder_1","F:\\tmp\\folder_2");
 			
 			
 		} catch (IOException e) {

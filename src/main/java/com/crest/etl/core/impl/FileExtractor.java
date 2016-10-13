@@ -29,6 +29,7 @@ public class FileExtractor implements Extractor {
 			File[] files = FileUtils.getFiles(filePath);
 			for(File file : files){
 				Scanner s = new Scanner(file);
+				s.useDelimiter("\r\n");
 				ArrayList<String> list = new ArrayList<String>();
 				while (s.hasNext()){
 				    list.add(s.next());
