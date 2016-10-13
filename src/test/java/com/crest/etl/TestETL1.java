@@ -29,7 +29,9 @@ public class TestETL1 {
 		
 		try {
 			
-			facade.extractTransformLoad("F:\\tmp\\folder_1","F:\\tmp\\folder_2");
+			facade.extractTransformLoad(
+					"D:\\betterjobworkspace\\crest\\trunk\\folder_1",
+					"D:\\betterjobworkspace\\crest\\trunk\\folder_2");
 			
 			
 		} catch (Exception e) {

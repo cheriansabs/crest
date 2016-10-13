@@ -1,6 +1,5 @@
 package com.crest.etl;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,28 +17,27 @@ public class TestETL {
 
 	@Test
 	public void testCapitalization() {
-		
+
 		Facade facade = FacadeFactory.getExtractor("FILE");
 		List<Transformer> lstTransformers = new ArrayList<>();
 		lstTransformers.add(TransformerFactory.getTransformer("CAPITALIZE"));
 		facade.setExtractor(ExtractorFactory.getExtractor("FILE"));
 		facade.setTransformers(lstTransformers);
 		facade.setLoader(LoaderFactory.getLoader("FILE"));
-		
+
 		try {
-			
-			facade.extractTransformLoad("F:\\tmp\\folder_1","F:\\tmp\\folder_2");
-			Assert.assertTrue(TestUtil.checkIfFilesAreCapitalized("F:\\tmp\\folder_2"));
-			
-			
+
+			facade.extractTransformLoad(
+					"D:\\betterjobworkspace\\crest\\trunk\\folder_1",
+					"D:\\betterjobworkspace\\crest\\trunk\\folder_2");
+			Assert.assertTrue(TestUtil
+					.checkIfFilesAreCapitalized("D:\\betterjobworkspace\\crest\\trunk\\folder_2"));
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
-	
 
 }

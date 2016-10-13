@@ -1,10 +1,8 @@
 package com.crest.etl.core.impl;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import com.crest.etl.core.Extractor;
 import com.crest.etl.core.Facade;
@@ -38,7 +36,7 @@ public class FileFacade implements Facade<File> {
 					lstTransformedStrings = transformer.transform(lstTransformedStrings);
 
 				});
-				loader.load(lstTransformedStrings, outputDirectory, file.getName());
+				loader.load(lstTransformedStrings, outputDirectory, file.getName()+ new Date().getTime());
 
 			}
 		} else {
