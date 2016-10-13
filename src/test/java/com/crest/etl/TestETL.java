@@ -24,6 +24,7 @@ public class TestETL {
 		extractor.setLoader(LoaderFactory.getLoader("FILE"));
 		
 		try {
+			
 			extractor.extract("F:\tmp\folder_1","F:\tmp\folder_2");
 			
 			
