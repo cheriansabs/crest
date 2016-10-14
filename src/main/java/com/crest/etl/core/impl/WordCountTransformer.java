@@ -1,6 +1,6 @@
 package com.crest.etl.core.impl;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,7 +13,7 @@ public class WordCountTransformer implements Transformer {
 	@Override
 	public List<String> transform(List<String> lst) {
 		// TODO Auto-generated method stub
-		Map<String, AtomicInteger> mapWordCount = new HashMap<>();
+		Map<String, AtomicInteger> mapWordCount = new LinkedHashMap<>();
 		for (String str : lst) {
 			String[] words = str.split("\\W+");
 			for (String word : words) {
@@ -27,7 +27,7 @@ public class WordCountTransformer implements Transformer {
 			}
 		}
 		List<String> lstTransformedStrings = mapWordCount.entrySet().stream()
-				.map(entry -> "  " + entry.getKey() + "  " + entry.getValue()).collect(Collectors.toList());
+				.map(entry ->entry.getKey() + "=" + entry.getValue()+ ",").collect(Collectors.toList());
 
 		return lstTransformedStrings;
 	}

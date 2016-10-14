@@ -36,7 +36,7 @@ public class FileFacade implements Facade<File> {
 					lstTransformedStrings = transformer.transform(lstTransformedStrings);
 
 				});
-				loader.load(lstTransformedStrings, outputDirectory, file.getName()+ new Date().getTime());
+				loader.load(lstTransformedStrings, outputDirectory, file.getName());
 
 			}
 		} else {

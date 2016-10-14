@@ -26,12 +26,15 @@ public class TestETL {
 		facade.setLoader(LoaderFactory.getLoader("FILE"));
 
 		try {
-
+			//Replace params with input dir and output dir
 			facade.extractTransformLoad(
-					"D:\\betterjobworkspace\\crest\\trunk\\folder_1",
-					"D:\\betterjobworkspace\\crest\\trunk\\folder_2");
+					"F:\\tmp\\folder_1",
+					"F:\\tmp\\folder_2");
+			
+			//Replace param 1 with output dir
 			Assert.assertTrue(TestUtil
-					.checkIfFilesAreCapitalized("D:\\betterjobworkspace\\crest\\trunk\\folder_2"));
+					.checkIfFilesAreCapitalized("F:\\tmp\\folder_2"));
+			System.out.println("successfully capitalized");
 
 		} catch (Exception e) {
 

@@ -38,4 +38,23 @@ public class TestUtil {
 		
 	}
 	
+	public static boolean checkWordCount(String outputDirectory,String expectedOutput) throws FileNotFoundException{
+		
+		File[] files = new File(outputDirectory).listFiles();
+		for(File file : files){
+			
+			Scanner s = new Scanner(file);
+			s.useDelimiter("\r\n");
+			ArrayList<String> list = new ArrayList<String>();
+			while (s.hasNext()){
+				
+			   if(s.next().equalsIgnoreCase(expectedOutput))
+				   return true;
+			}
+			
+		}
+		
+		return false;
+	}
+	
 }
